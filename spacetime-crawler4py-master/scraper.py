@@ -16,13 +16,6 @@ def extract_next_links(url, resp):
     if resp.status >= 400 or resp.status < 200:
         return []
 
-    traps = ["https://www.ics.uci.edu/~eppstein/pix", "http://archive.ics.uci.edu/ml/machine-learning-databases/", "https://www.ics.uci.edu/~agelfand/largeFam3.html",
-             "https://www.ics.uci.edu/~wjohnson/BIDA/Ch8/cowabortiondata.txt", "https://www.ics.uci.edu/~dock/manuals/oechem/api/", "http://archive.ics.uci.edu/ml/datasets.php",
-             "http://archive.ics.uci.edu/ml/005"]
-    for each in traps:
-        if each in url:
-            return []
-
     try:
         soup = BeautifulSoup(resp.raw_response.content, "html.parser")
     except AttributeError:
@@ -94,13 +87,6 @@ def is_valid(url):
         sites = defaultdict(int)
     if url in sites:
         return False
-
-    # avoid trap webpages
-    traps = ["https://www.ics.uci.edu/~eppstein/pix", "http://archive.ics.uci.edu/ml/machine-learning-databases/", "https://www.ics.uci.edu/~agelfand/largeFam3.html",
-             "https://www.ics.uci.edu/~wjohnson/BIDA/Ch8/cowabortiondata.txt", "https://www.ics.uci.edu/~dock/manuals/oechem/api/", "http://archive.ics.uci.edu/ml/datasets.php"]
-    for each in traps:
-        if each in url:
-            return False
 
     if re.match(r".*\/(css|js|bmp|gif|jpe?g|ico"
                   + r"|png|tiff?|mid|mp2|mp3|mp4|odp"
