@@ -1,8 +1,8 @@
 
-
-This is a simple implementation of a spacetime web crawler 
+**About**
+This is a simple implementation of a spacetime web crawler <br>
 that accesses a cache server to receive requests.
-
-The scraper uses a similarity hash to ignore duplicate pages 
-and infinite traps. All collected data is offloaded onto 
+<br><br>
+The scraper uses a similarity hash to ignore duplicate pages <br>
+and infinite traps. All collected data is offloaded onto <br>
 pickle files.
