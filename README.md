@@ -1,5 +1,5 @@
 # information-retrieval
-Project worked on regarding information retrieval.
+
 
 
 # About
